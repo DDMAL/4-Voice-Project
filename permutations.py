@@ -4,12 +4,12 @@ __author__ = 'mborsodi'
 def find_permutations(motifs):
 
     motif_list = motifs.keys()
-    for each in motif_list:
-        if each in motifs:
+    for motif in motif_list:
+        if motif in motifs:
             key = ""
 
-            for e in range(1, len(each)-1, 1):
-                key += each[e]
+            for e in range(1, len(motif)-1, 1):
+                key += motif[e]
 
             my_key = key.split()
             perms = _permute(my_key)
@@ -22,15 +22,15 @@ def find_permutations(motifs):
 
                 if this in motifs:
 
-                    if each != this:
-                        motifs[each].extend(motifs[this])
+                    if motif != this:
+                        motifs[motif].extend(motifs[this])
                         del motifs[this]
 
                     else:
-                        motifs[each].append(0)
+                        motifs[motif].append(0)
 
                 else:
-                    motifs[each].append(0)
+                    motifs[motif].append(0)
 
     for key in motifs:
 
@@ -55,8 +55,8 @@ def _permute(arr):
         final = []
 
         if len(arr) > 2:
-            for each in _permute(new_arr):
-                final.extend(_insert(x, each))
+            for perm in _permute(new_arr):
+                final.extend(_insert(x, perm))
 
         return final
 

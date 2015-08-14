@@ -7,13 +7,13 @@ import nodes
 
 
 josqy = [
-    'music/testing/Josquin-1.midi',  # Fortuna Desperata
-    'music/testing/Josquin-2.mei'  # Malheur me bat
+    'music/Josquin-1.midi',  # Fortuna Desperata
+    'music/Josquin-2.mei'  # Malheur me bat
 ]
 
 ocky1 = [
-    'music/testing/Ockeghem-1.mei',  # De plus en plus
-    'music/testing/Ockeghem-2.mid'  # Ma maistresse
+    'music/Ockeghem-1.mei',  # De plus en plus
+    'music/Ockeghem-2.mid'  # Ma maistresse
 ]
 
 
@@ -35,7 +35,7 @@ off_setts = {'quarterLength': 1.0, 'horiz-attach-later': True}
 # 'Count' returns a dictionary of motifs and how how frequently they occur.
 # 'Transformations' returns a one of motifs and at which pitches they occur.
 # 'Both' returns a list of these two dictionaries.
-setts = {'length': 4, 'which': 'Count'}
+setts = {'length': 4, 'which': 'count'}
 
 the_motifs = motifs.motivic_count(josqy[0], settings, setts)
 
@@ -70,8 +70,8 @@ permutations.find_permutations(the_motifs)
 # frequency() finds how often each value in a dictionary occurs, rather than the
 # keys.
 the_motifs = motifs.motivic_count(josqy[0], settings, setts)
-for each in the_motifs:
-    the_motifs[each] = the_motifs[each][0]
+for motif in the_motifs:
+    the_motifs[motif] = the_motifs[motif][0]
 motif_freq = features.frequency(the_motifs)
 
 
@@ -103,9 +103,9 @@ features.plot_graph(motif_freq, 'my motivic frequencies', 'x', 'y')
 # averages all the counted occurrences of the prime form together, or of the
 # inversion.
 numbers = []
-for each in josqy:
+for motif in josqy:
 
-    the_motifs = motifs.motivic_count(each, settings, setts)
+    the_motifs = motifs.motivic_count(motif, settings, setts)
     trans = transformations.find_transform(the_motifs)
     thing = transformations.count_transform(trans)
     numbers.append(thing)

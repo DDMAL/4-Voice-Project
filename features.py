@@ -8,11 +8,11 @@ def frequency(dictionary):
 
     freq = dict()
 
-    for each in dictionary:
-        if dictionary[each] in freq:
-            freq[dictionary[each]] += 1
+    for key in dictionary:
+        if dictionary[key] in freq:
+            freq[dictionary[key]] += 1
         else:
-            freq[dictionary[each]] = 1
+            freq[dictionary[key]] = 1
 
     return freq
 
@@ -58,7 +58,7 @@ def plot_graph(my_input, title, xlabel, ylabel):
 
         my_keys = list(my_input)
         my_keys.sort()
-        my_val = [my_input[each] for each in my_keys]
+        my_val = [my_input[key] for key in my_keys]
 
         plt.plot(my_keys, my_val)
 
@@ -77,8 +77,8 @@ def deviation(all_nums):
         total = sum(nums)
         percentages = []
 
-        for each in nums:
-            perc = float(each)/total * 100
+        for number in nums:
+            perc = float(number)/total * 100
             percentages.append(perc)
 
         the_sum.append(percentages)

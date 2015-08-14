@@ -7,15 +7,15 @@ def count_transform(trans_dict):
 
     all_nums = []
 
-    for each in keys:
-        all_nums.append(trans_dict[each])
+    for key in keys:
+        all_nums.append(trans_dict[key])
 
     each_trans = zip(*all_nums)
 
     list_sums = []
 
-    for each in each_trans:
-        list_sums.append(sum(each))
+    for key in each_trans:
+        list_sums.append(sum(key))
 
     return list_sums
 
@@ -85,12 +85,12 @@ def find_transform(motifs):
                 _find_inv(_find_ret(intls))
             ]
 
-            for each in transformations:
+            for trans in transformations:
 
-                if each in motifs:
-                    if intls != each:
-                        motifs[intls].extend(motifs[each])
-                        del motifs[each]
+                if trans in motifs:
+                    if intls != trans:
+                        motifs[intls].extend(motifs[trans])
+                        del motifs[trans]
 
                     else:
                         motifs[intls].append(0)
